@@ -23,7 +23,9 @@ __mount() {
 	mount -o bind,rw,nosuid,nodev,noexec,noatime,context=u:object_r:fuse:s0,uid=0,gid=9997,fmask=0117,dmask=0006 $1 $2
 }
 
-for i in $(ls $SOURCE)
+LIST=$(ls $SOURCE)
+
+for i in $LIST
 do
 if [ "$1" = "-u" ]
 then
