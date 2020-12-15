@@ -3,4 +3,4 @@
 
 # Setup tweaks
 #nsenter -t 1 -m /system/bin/amount
-pre_amount
+su -c pre_amount
