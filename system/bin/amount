@@ -13,6 +13,12 @@ done
 SOURCE="$EXTERNAL/.aMount"
 TARGET="/mnt/runtime/write/emulated/0"
 
+if [ ! -d $SOURCE ]
+then
+	echo "$SOURCE not found. Aborting ..."
+	exit 1
+fi
+
 __mount() {
 	mount -o bind,rw,nosuid,nodev,noexec,noatime,context=u:object_r:fuse:s0,uid=0,gid=9997,fmask=0117,dmask=0006 $1 $2
 }
