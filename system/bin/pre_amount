@@ -1,0 +1,3 @@
+#!/system/bin/sh
+
+nsenter -t 1 -m /system/bin/amount

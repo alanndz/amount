@@ -1,0 +1,27 @@
+#!/system/bin/sh
+#nsenter -t 1 -m /system/bin/sh
+
+DISK="/mnt/media_rw/01D5-4600"
+DIR="$DISK/.BackupInternal"
+TARGET="/mnt/runtime/write/emulated/0"
+
+__mount() {
+	mount -o bind,rw,nosuid,nodev,noexec,noatime,context=u:object_r:fuse:s0,uid=0,gid=9997,fmask=0117,dmask=0006 $1 $2
+	#mount -o rw,remount,bind $1 $2
+}
+
+l=$(ls $DIR)
+
+for i in $l
+do
+if [ "$1" = "-u" ]
+then
+	umount "$TARGET/$i"
+	echo "umount: $TARGET/$i"
+else
+	echo "mount: $DIR/$i"
+	mkdir -p "$TARGET/$i"
+	#echo "$TARGET/$i"
+	__mount "$DIR/$i" "$TARGET/$i"
+fi
+done

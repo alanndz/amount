@@ -1,0 +1,6 @@
+id=amount
+name=aMount
+version=v1.0
+versionCode=1
+author=alanndz
+description=Mount folder from sdcard into internal.
