@@ -1,3 +1,8 @@
 #!/system/bin/sh
 
-nsenter -t 1 -m /system/bin/amount
+if [ "$1" = "-u" ]
+then
+	nsenter -t 1 -m -- /system/bin/amount -u
+else
+	nsenter -t 1 -m -- /system/bin/amount
+fi
