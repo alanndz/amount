@@ -7,4 +7,4 @@ echo "amount: running on boot" > /data/amount.log
 #nsenter -t 1 -m /system/bin/amount
 #echo "amount: Running on boot"
 #su -c "/system/bin/pre_amount"
-pre_amount
+su -c pre_amount
