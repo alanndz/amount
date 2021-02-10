@@ -10,7 +10,7 @@ for var in `ls /mnt/runtime/default`; do
     fi
 done
 
-SOURCE="$EXTERNAL/.aMount"
+SOURCE="$EXTERNAL/.amount"
 TARGET="/mnt/runtime/write/emulated/0"
 
 if [ ! -d $SOURCE ]
